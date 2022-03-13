@@ -4,15 +4,15 @@ function showScore(){
     const totalScore = document.getElementById('score-message');
 
     if(score === 5) {
-        totalScore.innerHTML = score + "点：満点！おめでとう！"
+        totalScore.innerHTML = score + "点：さすが"
     } else if(score === 4) {
-        totalScore.innerHTML = score + "点：あともう一息！";
+        totalScore.innerHTML = score + "点：もう一息";
     } else if(score === 3) {
-        totalScore.innerHTML = score + "点：まあまあ";
+        totalScore.innerHTML = score + "点：よくやるねぇ";
     } else if(score === 2) {
         totalScore.innerHTML = score + "点:頑張れ";
     } else {
-        totalScore.innerHTML = score + "点：残念";
+        totalScore.innerHTML = score + "点：ドンマイ";
     }
 }
 //respons
