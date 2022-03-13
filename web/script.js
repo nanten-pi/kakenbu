@@ -3,24 +3,26 @@ let score = 0;
 function showScore(){
     const totalScore = document.getElementById('score-message');
 
-    if(score === 3) {
+    if(score === 5) {
         totalScore.innerHTML = score + "点：満点！おめでとう！"
-    } else if(score === 2) {
+    } else if(score === 4) {
         totalScore.innerHTML = score + "点：あともう一息！";
-    } else if(score === 1) {
+    } else if(score === 3) {
         totalScore.innerHTML = score + "点：まあまあ";
+    } else if(score === 2) {
+        totalScore.innerHTML = score + "点:頑張れ";
     } else {
         totalScore.innerHTML = score + "点：残念";
     }
 }
-
+//respons
 const correct = '正解です';
 const incorrect = '不正解です';
 
 function answerQuiz1() {
     const quiz_1 = document.getElementById('quiz-1');
     const select = '1問目：' + quiz_1.answer.value + 'を選択しました';
-
+//which respons answer
     if (quiz_1.answer.value == 'a') {
         console.log(select);
         console.log(incorrect);
@@ -42,15 +44,15 @@ function answerQuiz2(){
     const select = '2問目：' + quiz_2.answer.value + 'を選択しました';
 
     if (quiz_2.answer.value == 'a') {
-        score++;
         console.log(select);
-        console.log(correct);
+        console.log(incorrect);
     } else if (quiz_2.answer.value == 'b') {
         console.log(select);
         console.log(incorrect);
     } else if (quiz_2.answer.value == 'c') {
+        score++;
         console.log(select);
-        console.log(incorrect);
+        console.log(correct);
     } else {
         alert('2問目の答えを入力してください');
     }
@@ -62,18 +64,62 @@ function answerQuiz3(){
     const select = '3問目：' + quiz_3.answer.value + 'を選択しました';
 
     if (quiz_3.answer.value == 'a') {
+        score++;
         console.log(select);
-        console.log(incorrect);
+        console.log(correct);
     } else if (quiz_3.answer.value == 'b') {
         console.log(select);
         console.log(incorrect);
 
     } else if (quiz_3.answer.value == 'c') {
+        console.log(select);
+        console.log(incorrect);
+    } else {
+        alert('3問目の答えを入力してください');
+    }
+    console.log('現在の点数：' + score);
+}
+
+function answerQuiz4(){
+    const quiz_3 = document.getElementById('quiz-4');
+    const select = '4問目：' + quiz_4.answer.value + 'を選択しました';
+
+    if (quiz_4.answer.value == 'a') {
+        console.log(select);
+        console.log(incorrect);
+    } else if (quiz_4.answer.value == 'b') {
+        console.log(select);
+        console.log(incorrect);
+
+    } else if (quiz_4.answer.value == 'c') {
         score++;
         console.log(select);
         console.log(correct);
     } else {
-        alert('3問目の答えを入力してください');
+        alert('4問目の答えを入力してください');
+    }
+    console.log('現在の点数：' + score);
+}
+
+function answerQuiz5(){
+    const quiz_3 = document.getElementById('quiz-5');
+    const select = '5問目：' + quiz_5.answer.value + 'を選択しました';
+
+    if (quiz_5.answer.value == 'a') {
+        score++;
+        console.log(select);
+        console.log(correct);
+    } else if (quiz_5.answer.value == 'b') {
+        score++;
+        console.log(select);
+        console.log(correct);
+
+    } else if (quiz_5.answer.value == 'c') {
+        score++;
+        console.log(select);
+        console.log(correct);
+    } else {
+        alert('5問目の答えを入力してください');
     }
     console.log('現在の点数：' + score);
 }
