@@ -1,126 +1,51 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>科研部クイズ</title>
-  </head>
-  <body>
-    <div id="quiz"></div>
-    <button id="submit">Submit Quiz</button>
-    <div id="results"></div>
-    <script>
-      const quizContainer = document.getElementById('quiz');
-      const resultsContainer = document.getElementById('results');
-      const submitButton = document.getElementById('submit');
-      function buildQuiz(){}
-
-      function showResults(){}
-
-      // display quiz right away
-      buildQuiz();
-
-      //click show kekka
-      submitButton.addEventListener('click', showResults);
-
-      const myQuestions = [
-        {
-          question: "Who is the strongest?",
-          answers: {
-            a: "Superman",
-            b: "The Terminator",
-            c: "Waluigi, obviously"
-          },
-          correctAnswer: "c"
-        {
-          question: "What is the best site ever created?",
-          answers: {
-            a: "SitePoint",
-            b: "Simple Steps Code",
-            c: "Trick question; they're both the best"
-          },
-          correctAnswer: "c"
-        },
-        {
-          question: "Where is Waldo really?",
-          answers: {
-            a: "Antarctica",
-            b: "Exploring the Pacific Ocean",
-            c: "Sitting in a tree",
-            d: "Minding his own business, so stop asking"
-        },
-        correctAnswer: "d"
-        }
-      ];
-      function buildQuiz(){
-        // we'll need a place to store the HTML output
-        const output = [];
-
-        // for each question...
-        myQuestions.forEach(
-        (currentQuestion, questionNumber) => {
-
-          // we'll want to store the list of answer choices
-          const answers = [];
-
-          // and for each available answer...
-          for(letter in currentQuestion.answers){
-
-            // ...add an HTML radio button
-            answers.push(
-            `<label>
-              <input type="radio" name="question${questionNumber}" value="${letter}">
-              ${letter} :
-              ${currentQuestion.answers[letter]}
-            </label>`
-          );
-        }
-
-          // add this question and its answers to the output
-          output.push(
-          `<div class="question"> ${currentQuestion.question} </div>
-          <div class="answers"> ${answers.join('')} </div>`
-        );
-      }
-    );
-
-    // finally combine our output list into one string of HTML and put it on the page
-    quizContainer.innerHTML = output.join('');
-  }
-
-      function showResults(){
-
-        // gather answer containers from our quiz
-        const answerContainers = quizContainer.querySelectorAll('.answers');
-
-        // keep track of user's answers
-        let numCorrect = 0;
-
-          // for each question...
-          myQuestions.forEach( (currentQuestion, questionNumber) => {
-
-            // find selected answer
-            const answerContainer = answerContainers[questionNumber];
-            const selector = 'input[name=question'+questionNumber+']:checked';
-            const userAnswer = (answerContainer.querySelector(selector) || {}).value;
-
-            // if answer is correct
-            if(userAnswer===currentQuestion.correctAnswer){
-              // add to the number of correct answers
-              numCorrect++;
-
-              // color the answers green
-              answerContainers[questionNumber].style.color = 'lightgreen';
-            }
-            // if answer is wrong or blank
-            else{
-              // color the answers red
-              answerContainers[questionNumber].style.color = 'red';
-            }
-          });
-
-          // show number of correct answers out of total
-          resultsContainer.innerHTML = numCorrect + ' out of ' + myQuestions.length;
-        }
-      </script>
-    </body>
-    
+<head>
+<link rel="stylesheet" href="styles.css" />
+<script src="script.js"></script>
+</head>
+<body>
+<div class="quizzes-container">
+  <h1>クイズ  </h1>
+  <div class="quiz-container">
+    <h2>第1問</h2>
+    <div>
+      <p>1.昆虫の脚は何本か</p>
+    </div>
+    <form id="quiz-1">
+      <input name="answer" type="radio" value="a">9</input>
+      <input name="answer" type="radio" value="b">6</input>
+      <input name="answer" type="radio" value="c">4</input>
+    </form>
+    <button class="btn" type="button" onclick="answerQuiz1();">回答する</button>
+  </div>
+  <div class="quiz-container">
+    <h2>第2問</h2>
+    <div>
+      <p>2.さなぎを経ての成長の仕方をなんというか</p>
+    </div>
+    <form id="quiz-2">
+      <input name="answer" type="radio" value="a">完全変態</input>
+      <input  name="answer" type="radio" value="b">不完全変態</input>
+      <input name="answer" type="radio" value="c">非完全変態</input>
+    </form>
+    <button class="btn" type="button" onclick="answerQuiz2();">回答する</button>
+  </div>
+  <div class="quiz-container">
+    <h2>第3問</h2>
+    <div>
+      <p>水素と酸素を集めて点火すると何ができるか</p>
+    </div>
+    <form id="quiz-3">
+      <input name="answer" type="radio" value="a">水</input>
+      <input name="answer" type="radio" value="b">アンモニア</input>
+      <input name="answer" type="radio" value="c">鉄</input>
+    </form>
+    <button class="btn" type="button" onclick="answerQuiz3();">回答する</button>
+  </div>
+  <div id="score-container">
+    <p id="score-message"></p>
+  </div>
+  <button class="btn-score" type="button" onclick="showScore();">合計得点を見る</button>
+</div>
+</body>
