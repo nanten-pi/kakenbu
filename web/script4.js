@@ -25,12 +25,12 @@ function answerQuiz1() {
     const quiz_1 = document.getElementById('quiz-1');
     const select = '1問目：' + quiz_1.answer.value + 'を選択しました';
     if (quiz_1.answer.value == 'a') {
-        console.log(select);
-        console.log(incorrect);
-    } else if (quiz_1.answer.value == 'b') {
         score++;
         console.log(select);
         console.log(correct);
+    } else if (quiz_1.answer.value == 'b') {
+        console.log(select);
+        console.log(incorrect);
     } else if (quiz_1.answer.value == 'c') {
         console.log(select);
         console.log(incorrect);
@@ -63,13 +63,12 @@ function answerQuiz3(){
     const select = '3問目：' + quiz_3.answer.value + 'を選択しました';
 
     if (quiz_3.answer.value == 'a') {
+        console.log(select);
+        console.log(incorrect);
+    } else if (quiz_3.answer.value == 'b') {
         score++;
         console.log(select);
         console.log(correct);
-    } else if (quiz_3.answer.value == 'b') {
-        console.log(select);
-        console.log(incorrect);
-
     } else if (quiz_3.answer.value == 'c') {
         console.log(select);
         console.log(incorrect);
@@ -83,16 +82,16 @@ function answerQuiz4(){
     const select = '4問目：' + quiz_4.answer.value + 'を選択しました';
 
     if (quiz_4.answer.value == 'a') {
+        score++;
         console.log(select);
-        console.log(incorrect);
+        console.log(correct);
     } else if (quiz_4.answer.value == 'b') {
         console.log(select);
         console.log(incorrect);
 
     } else if (quiz_4.answer.value == 'c') {
-        score++;
         console.log(select);
-        console.log(correct);
+        console.log(incorrect);
     } else {
         alert('4問目の答えを入力してください');
     }

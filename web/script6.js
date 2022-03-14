@@ -44,15 +44,15 @@ function answerQuiz2(){
     const select = '2問目：' + quiz_2.answer.value + 'を選択しました';
 
     if (quiz_2.answer.value == 'a') {
+        score++;
         console.log(select);
-        console.log(incorrect);
+        console.log(correct);
     } else if (quiz_2.answer.value == 'b') {
         console.log(select);
         console.log(incorrect);
     } else if (quiz_2.answer.value == 'c') {
-        score++;
         console.log(select);
-        console.log(correct);
+        console.log(incorrect);
     } else {
         alert('2問目の答えを入力してください');
     }

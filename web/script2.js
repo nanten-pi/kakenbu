@@ -25,12 +25,12 @@ function answerQuiz1() {
     const quiz_1 = document.getElementById('quiz-1');
     const select = '1問目：' + quiz_1.answer.value + 'を選択しました';
     if (quiz_1.answer.value == 'a') {
-        console.log(select);
-        console.log(incorrect);
-    } else if (quiz_1.answer.value == 'b') {
         score++;
         console.log(select);
         console.log(correct);
+    } else if (quiz_1.answer.value == 'b') {
+        console.log(select);
+        console.log(incorrect);
     } else if (quiz_1.answer.value == 'c') {
         console.log(select);
         console.log(incorrect);
