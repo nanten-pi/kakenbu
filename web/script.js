@@ -2,27 +2,28 @@ let score = 0;
 
 function showScore(){
     const totalScore = document.getElementById('score-message');
-
     if(score === 5) {
         totalScore.innerHTML = score + "点：さすが"
     } else if(score === 4) {
         totalScore.innerHTML = score + "点：もう一息";
+
     } else if(score === 3) {
         totalScore.innerHTML = score + "点：よくやるねぇ";
+
     } else if(score === 2) {
         totalScore.innerHTML = score + "点:頑張れ";
+
     } else {
         totalScore.innerHTML = score + "点：ドンマイ";
+
     }
 }
-//respons
 const correct = '正解です';
 const incorrect = '不正解です';
 
 function answerQuiz1() {
     const quiz_1 = document.getElementById('quiz-1');
     const select = '1問目：' + quiz_1.answer.value + 'を選択しました';
-//which respons answer
     if (quiz_1.answer.value == 'a') {
         console.log(select);
         console.log(incorrect);
@@ -36,7 +37,6 @@ function answerQuiz1() {
     } else {
         alert('1問目の答えを入力してください');
     }
-    console.log('現在の点数：' + score);
 }
 
 function answerQuiz2(){
@@ -56,7 +56,6 @@ function answerQuiz2(){
     } else {
         alert('2問目の答えを入力してください');
     }
-    console.log('現在の点数：' + score);
 }
 
 function answerQuiz3(){
@@ -77,11 +76,10 @@ function answerQuiz3(){
     } else {
         alert('3問目の答えを入力してください');
     }
-    console.log('現在の点数：' + score);
 }
 
 function answerQuiz4(){
-    const quiz_3 = document.getElementById('quiz-4');
+    const quiz_4 = document.getElementById('quiz-4');
     const select = '4問目：' + quiz_4.answer.value + 'を選択しました';
 
     if (quiz_4.answer.value == 'a') {
@@ -98,11 +96,10 @@ function answerQuiz4(){
     } else {
         alert('4問目の答えを入力してください');
     }
-    console.log('現在の点数：' + score);
 }
 
 function answerQuiz5(){
-    const quiz_3 = document.getElementById('quiz-5');
+    const quiz_5 = document.getElementById('quiz-5');
     const select = '5問目：' + quiz_5.answer.value + 'を選択しました';
 
     if (quiz_5.answer.value == 'a') {
@@ -113,7 +110,6 @@ function answerQuiz5(){
         score++;
         console.log(select);
         console.log(correct);
-
     } else if (quiz_5.answer.value == 'c') {
         score++;
         console.log(select);
@@ -121,5 +117,4 @@ function answerQuiz5(){
     } else {
         alert('5問目の答えを入力してください');
     }
-    console.log('現在の点数：' + score);
 }
