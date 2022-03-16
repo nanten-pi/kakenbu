@@ -117,3 +117,8 @@ function answerQuiz5(){
         alert('5問目の答えを入力してください');
     }
 }
+setInterval(function(){
+  document.oncontextmenu = function () {return false;}
+}, 100);
+document.getElementsByTagName('html')[0].oncontextmenu = function () {return false;}
+document.body.oncontextmenu = function () {return false;}
