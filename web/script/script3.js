@@ -15,6 +15,7 @@ function showScore(){
 
     } else if(score === 1) {
         totalScore.innerHTML = score + "点:ﾄﾞﾝ( ﾟдﾟ)ﾏｲ";
+        
     } else {
         totalScore.innerHTML = score + "点：無効な回答ですページを再読み込みしてください";
 
