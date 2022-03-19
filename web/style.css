@@ -1,5 +1,5 @@
 body {
-  font-family: serif;
+  font-family: "UD Digi Kyokasho NP-R";
   text-align: center;
 }
 
@@ -15,7 +15,7 @@ body {
 
 .btn {
   margin-top: 20px;
-  font-family: serif;
+  font-family: "UD Digi Kyokasho NP-R";
   background-color: white;
 }
 
@@ -27,6 +27,6 @@ body {
 .btn-score {
   display: block;
   margin: 20px auto;
-  font-family: serif;
+  font-family: "UD Digi Kyokasho NP-R";
   background-color: white;
 }
