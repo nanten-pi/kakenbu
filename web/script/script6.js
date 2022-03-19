@@ -8,7 +8,10 @@ function showScore(){
         totalScore.innerHTML = score + "点：もう一息";
 
     } else if(score === 3) {
-        totalScore.innerHTML = score + "点：よくやるねぇ";
+        totalScore.innerHTML = score + "点：やりますねぇ";
+        
+    } else if(score === 2) {
+        totalScore.innerHTML = score + "点:頑張れ";
 
     } else if(score === 1) {
         totalScore.innerHTML = score + "点:ﾄﾞﾝ( ﾟдﾟ)ﾏｲ";
