@@ -15,7 +15,7 @@ function showScore(){
 
     } else if(score === 1) {
         totalScore.innerHTML = score + "点:ﾄﾞﾝ( ﾟдﾟ)ﾏｲ";
-        
+
     } else {
         totalScore.innerHTML = score + "点：無効な回答ですページを再読み込みしてください";
 
@@ -121,6 +121,6 @@ function answerQuiz5(){
 }
 setInterval(function(){
   document.oncontextmenu = function () {return false;}
-}, 100);
+}, 100);//this script is heavy behavior so you not do this proglam on low-spec computer
 document.getElementsByTagName('html')[0].oncontextmenu = function () {return false;}
 document.body.oncontextmenu = function () {return false;}
