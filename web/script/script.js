@@ -28,15 +28,15 @@ function answerQuiz1() {
     const quiz_1 = document.getElementById('quiz-1');
     const select = '1問目：' + quiz_1.answer.value + 'を選択しました';
     if (quiz_1.answer.value == 'a') {
-        console.log(select);
-        console.log(incorrect);
+        alert(select);
+        alert(incorrect);
     } else if (quiz_1.answer.value == 'b') {
         score++;
-        console.log(select);
-        console.log(correct);
+        alert(select);
+        alert(correct);
     } else if (quiz_1.answer.value == 'c') {
-        console.log(select);
-        console.log(incorrect);
+        alert(select);
+        alert(incorrect);
     } else {
         alert('1問目の答えを入力してください');
     }
@@ -48,8 +48,8 @@ function answerQuiz2(){
 
     if (quiz_2.answer.value == 'a') {
         score++;
-        console.log(select);
-        console.log(correct);
+        alert(select);
+        alert(correct);
     } else if (quiz_2.answer.value == 'b') {
         console.log(select);
         console.log(incorrect);
