@@ -51,11 +51,11 @@ function answerQuiz2(){
         alert(select);
         alert(correct);
     } else if (quiz_2.answer.value == 'b') {
-        console.log(select);
-        console.log(incorrect);
+        alert(select);
+        alert(incorrect);
     } else if (quiz_2.answer.value == 'c') {
-        console.log(select);
-        console.log(incorrect);
+        alert(select);
+        alert(incorrect);
     } else {
         alert('2問目の答えを入力してください');
     }

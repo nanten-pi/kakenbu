@@ -1,0 +1,13 @@
+body {
+  text-align: center;
+  font-family: "UD Digi Kyokasho NP-R";
+}
+
+image {
+  background-image: url(images/source-4280758_1920.jpg);
+  opacity: 0.3;
+}
+
+main {
+  opacity: 1.0;
+}
