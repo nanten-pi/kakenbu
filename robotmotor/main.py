@@ -11,6 +11,8 @@ GPIO.setup(11, GPIO.OUT) #Bmotorpin out (bcm)
 def on_press(key):#keyboard find?
     print('{0} pressed'.format(
         key))
+    if key == Key.w:
+        GPIO.output(4, GPIO.HIGH)
 
 def on_release(key):
     print('{0} release'.format(
