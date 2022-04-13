@@ -1,0 +1,20 @@
+(kicad_sch (version 20211123) (generator eeschema)
+
+  (uuid 3e759481-bd1e-43d1-a516-704165a0cc70)
+
+  (paper "A4")
+
+  (title_block
+    (title "robothat")
+    (date "2022-04-13")
+    (company "hiroshima junior high school science club")
+  )
+
+  (lib_symbols
+  )
+
+
+  (sheet_instances
+    (path "/" (page "1"))
+  )
+)

@@ -1,28 +1,64 @@
 import RPi.GPIO as GPIO
-import time
-import sys
-from pynput.keyboard import Key, Listener
-GPIO.setmode(GPIO.BCM)#GPiomode is BCM
-GPIO.setup(4, GPIO.OUT) #Amotorpin out (bcm)
-GPIO.setup(17, GPIO.OUT) #Amotorpin out (bcm)
-GPIO.setup(9, GPIO.OUT) #Bmotorpin out (bcm)
-GPIO.setup(11, GPIO.OUT) #Bmotorpin out (bcm)
 
-def on_press(key):#keyboard find?
-    print('{0} pressed'.format(
-        key))
-    if key == Key.w:
-        GPIO.output(4, GPIO.HIGH)
+STATE_STOP = 0
+STATE_ON = 1
 
-def on_release(key):
-    print('{0} release'.format(
-        key))
-    if key == Key.esc:
-        # Stop listener
-        return False
+class Motor:
 
-# Collect events until released
-with Listener(
-        on_press=on_press,
-        on_release=on_release) as listener:
-    listener.join()
+    def __init__(self, pina, pinb, pwmpin):
+        self.state = STATE_STOP
+        self.pina = pina
+        self.pinb = pinb
+        self.pwmpin = pwmpin
+        self.duty = 0
+
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setwarnings(False)
+
+        GPIO.setup(self.pina, GPIO.OUT)
+        GPIO.output(self.pina, GPIO.LOW)
+
+        GPIO.setup(self.pinb, GPIO.OUT)
+        GPIO.output(self.pinb, GPIO.LOW)
+
+        GPIO.setup(self.pwmpin, GPIO.OUT)
+        GPIO.output(self.pwmpin, GPIO.LOW)
+
+        self.pwm = GPIO.PWM(self.pwmpin, 80)
+        return
+
+    def setspeed(self,duty):
+        self.duty = duty
+        if self.state == STATE_ON:
+            self.pwm.ChangeDutyCycle(self.duty)
+        return self.state
+
+    def accelon(self,back = False):
+        if back == False:
+            GPIO.output(self.pina, GPIO.HIGH)
+            GPIO.output(self.pinb, GPIO.LOW)
+        else:
+            GPIO.output(self.pina, GPIO.LOW)
+            GPIO.output(self.pinb, GPIO.HIGH)
+
+        if self.state == STATE_STOP:
+            self.pwm.start(self.duty)
+
+        self.state = STATE_ON
+        return self.state
+
+    def acceloff(self):
+        GPIO.output(self.pina, GPIO.LOW)
+        GPIO.output(self.pinb, GPIO.LOW)
+        self.pwm.stop()
+        self.state = STATE_STOP
+        return self.state
+
+    def brakeon(self):
+        GPIO.output(self.pina, GPIO.HIGH)
+        GPIO.output(self.pinb, GPIO.HIGH)
+        self.pwm.stop()
+        GPIO.output(self.pina, GPIO.LOW)
+        GPIO.output(self.pinb, GPIO.LOW)
+        self.state = STATE_STOP
+        return self.state
