@@ -1,0 +1,35 @@
+.slider_fade {
+    position: relative;
+}
+
+.slider_fade > li {
+    position: absolute;
+    list-style: none;
+    visibility: hidden;
+    animation: anime_slider_fade 16s 0s infinite;
+}
+.slider_fade > li:nth-of-type(2) {
+    animation-delay: 8s;
+}
+.slider_fade > li:nth-of-type(3) {
+    animation-delay: 16s;
+}
+
+@keyframes anime_slider_fade {
+    0% {
+        visibility: visible;
+        opacity: 0;
+    }
+    15% {
+        opacity: 1;
+    }
+    33.3% {
+        opacity: 1;
+    }
+    48.3% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
